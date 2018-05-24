@@ -1,0 +1,51 @@
+package CalendarGCE;
+
+import javax.swing.JOptionPane;
+
+public class PhaseOfMoon {
+	private String Moon;
+	private int degree;
+	
+	public PhaseOfMoon() {
+		Moon = " ";
+		degree = 0;
+		
+	}
+	public void setDegree(int d) {
+		switch(d) {
+		case 180:
+			degree = 180;
+			Moon = "FULL MOON";
+			break;
+		case 6:
+			degree = 6;
+			Moon = "Waxing Crescent";
+			break;
+		case 90:
+			degree = 90;
+			Moon = "Quarter Moon";
+			break;
+		}
+	}
+	public void run() {
+		int input;
+		int a=0;
+		Object[] buttons = {180,6,90};
+		input = JOptionPane.showOptionDialog(null, "Enter Moon's degree ",
+				"Phase of Moon", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,null, buttons, buttons[0]);
+		if (input == 0) {
+			a = 180;
+		}
+		if (input == 1) {
+			a = 6;
+		}
+		else {
+			a = 90;
+		}
+		setDegree(a);
+	}
+	public String getMoonPhase() {
+		return Moon;
+	}
+}
+
